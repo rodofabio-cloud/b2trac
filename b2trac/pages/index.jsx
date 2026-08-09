@@ -1,102 +1,80 @@
-import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { obtenerPedidos } from '../utils/supabase';
 
 export default function Home() {
-  const [pedidos, setPedidos] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    cargarPedidos();
-  }, []);
-
-  async function cargarPedidos() {
-    try {
-      const data = await obtenerPedidos();
-      setPedidos(data || []);
-    } catch (error) {
-      console.error('Error cargando pedidos:', error);
-    } finally {
-      setLoading(false);
-    }
-  }
-
   return (
-    <div style={{ padding: '20px', fontFamily: 'Arial' }}>
-      <h1>📱 B2TRAC - CRM ICLA</h1>
+    <div style={{
+      minHeight: '100vh',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+      fontFamily: 'Arial, sans-serif'
+    }}>
+      <div style={{
+        backgroundColor: 'white',
+        borderRadius: '10px',
+        padding: '40px',
+        textAlign: 'center',
+        boxShadow: '0 10px 40px rgba(0,0,0,0.2)',
+        maxWidth: '500px'
+      }}>
+        <h1 style={{ color: '#333', marginBottom: '10px' }}>🚀 B2TRAC</h1>
+        <p style={{ color: '#666', marginBottom: '40px', fontSize: '14px' }}>
+          Sistema integrado de gestión de ventas
+        </p>
 
-      <div style={{ marginBottom: '30px' }}>
-        <Link href="/pedidos/nuevo">
-          <button style={{
-            backgroundColor: '#007bff',
-            color: 'white',
-            padding: '10px 20px',
-            borderRadius: '5px',
-            border: 'none',
-            cursor: 'pointer',
-            fontSize: '16px'
-          }}>
-            ➕ Nuevo Pedido
-          </button>
-        </Link>
-      </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+          
+          <Link href="/vendedor">
+            <button style={{
+              backgroundColor: '#28a745',
+              color: 'white',
+              padding: '15px 30px',
+              fontSize: '16px',
+              fontWeight: 'bold',
+              border: 'none',
+              borderRadius: '5px',
+              cursor: 'pointer',
+              transition: 'background 0.3s'
+            }}
+            onMouseOver={(e) => e.target.style.backgroundColor = '#218838'}
+            onMouseOut={(e) => e.target.style.backgroundColor = '#28a745'}
+            >
+              👨‍💼 Portal Vendedor
+            </button>
+          </Link>
 
-      <h2>Pedidos Recientes</h2>
-      
-      {loading ? (
-        <p>Cargando...</p>
-      ) : pedidos.length === 0 ? (
-        <p>No hay pedidos aún.</p>
-      ) : (
-        <table style={{
-          width: '100%',
-          borderCollapse: 'collapse',
-          marginTop: '20px'
+          <Link href="/cliente">
+            <button style={{
+              backgroundColor: '#007bff',
+              color: 'white',
+              padding: '15px 30px',
+              fontSize: '16px',
+              fontWeight: 'bold',
+              border: 'none',
+              borderRadius: '5px',
+              cursor: 'pointer',
+              transition: 'background 0.3s'
+            }}
+            onMouseOver={(e) => e.target.style.backgroundColor = '#0056b3'}
+            onMouseOut={(e) => e.target.style.backgroundColor = '#007bff'}
+            >
+              📦 Portal Cliente
+            </button>
+          </Link>
+
+        </div>
+
+        <p style={{ 
+          color: '#999', 
+          fontSize: '12px', 
+          marginTop: '30px',
+          borderTop: '1px solid #eee',
+          paddingTop: '20px'
         }}>
-          <thead>
-            <tr style={{ backgroundColor: '#f5f5f5' }}>
-              <th style={{ padding: '10px', textAlign: 'left', borderBottom: '1px solid #ddd' }}>
-                Número
-              </th>
-              <th style={{ padding: '10px', textAlign: 'left', borderBottom: '1px solid #ddd' }}>
-                Cliente
-              </th>
-              <th style={{ padding: '10px', textAlign: 'left', borderBottom: '1px solid #ddd' }}>
-                Monto
-              </th>
-              <th style={{ padding: '10px', textAlign: 'left', borderBottom: '1px solid #ddd' }}>
-                Estado
-              </th>
-              <th style={{ padding: '10px', textAlign: 'left', borderBottom: '1px solid #ddd' }}>
-                Fecha
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {pedidos.map((pedido) => (
-              <tr key={pedido.id} style={{ borderBottom: '1px solid #ddd' }}>
-                <td style={{ padding: '10px' }}>
-                  <Link href={`/pedidos/${pedido.id}`}>
-                    #{pedido.numero}
-                  </Link>
-                </td>
-                <td style={{ padding: '10px' }}>
-                  {pedido.clientes?.nombre || 'N/A'}
-                </td>
-                <td style={{ padding: '10px' }}>
-                  ${pedido.monto.toFixed(2)}
-                </td>
-                <td style={{ padding: '10px' }}>
-                  {pedido.estado}
-                </td>
-                <td style={{ padding: '10px' }}>
-                  {new Date(pedido.fecha_pedido).toLocaleDateString('es-CL')}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      )}
+          B2TRAC v1.0 | Gestión de Distribución
+        </p>
+      </div>
     </div>
   );
 }

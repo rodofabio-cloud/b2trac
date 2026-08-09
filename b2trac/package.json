@@ -1,7 +1,9 @@
 {
   "name": "b2trac",
   "version": "1.0.0",
-  "description": "B2TRAC - Sistema integrado de gestión de ventas",
+  "description": "B2TRAC - Sistema integrado de gestión de ventas con Portal Dual (Vendedor/Cliente)",
+  "author": "Fabio Said",
+  "license": "proprietary",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,7 +11,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "latest",
+    "next": "^14.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "@supabase/supabase-js": "^2.38.0",

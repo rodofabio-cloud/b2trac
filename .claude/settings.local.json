@@ -77,7 +77,9 @@
       "Bash(npm run *)",
       "Bash(PORT=5174 npm run dev)",
       "Read(//tmp/**)",
-      "mcp__claude-in-chrome__list_connected_browsers"
+      "mcp__claude-in-chrome__list_connected_browsers",
+      "Bash(mv pages/index/index-home.jsx pages/index.jsx)",
+      "Bash(rm -rf pages/index)"
     ]
   }
 }
