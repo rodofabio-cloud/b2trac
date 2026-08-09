@@ -1,7 +1,7 @@
 {
   "name": "b2trac",
   "version": "1.0.0",
-  "description": "CRM para vendedores ICLA",
+  "description": "B2TRAC - Sistema integrado de gestión de ventas",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -13,7 +13,9 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "@supabase/supabase-js": "^2.38.0",
-    "axios": "^1.4.0"
+    "axios": "^1.4.0",
+    "xlsx": "^0.18.5",
+    "papaparse": "^5.4.1"
   },
   "devDependencies": {
     "eslint": "^8.0.0",
