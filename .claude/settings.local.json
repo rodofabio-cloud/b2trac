@@ -79,7 +79,11 @@
       "Read(//tmp/**)",
       "mcp__claude-in-chrome__list_connected_browsers",
       "Bash(mv pages/index/index-home.jsx pages/index.jsx)",
-      "Bash(rm -rf pages/index)"
+      "Bash(rm -rf pages/index)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(xargs grep -l \"Rutero\")",
+      "Bash(git add *)"
     ]
   }
 }

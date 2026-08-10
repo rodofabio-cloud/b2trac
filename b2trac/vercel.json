@@ -1,0 +1,95 @@
+{
+  "name": "b2trac",
+  "version": 2,
+  "env": {
+    "NEXT_PUBLIC_SUPABASE_URL": {
+      "description": "URL del proyecto Supabase",
+      "required": true
+    },
+    "NEXT_PUBLIC_SUPABASE_ANON_KEY": {
+      "description": "API Key de Supabase (anón)",
+      "required": true
+    },
+    "NEXT_PUBLIC_TENANT_ID": {
+      "description": "ID único del tenant/cliente",
+      "default": "default",
+      "required": false
+    },
+    "NEXT_PUBLIC_APP_NAME": {
+      "description": "Nombre de la aplicación",
+      "default": "B2TRAC",
+      "required": false
+    },
+    "NEXT_PUBLIC_COMPANY_NAME": {
+      "description": "Nombre de la empresa",
+      "default": "B2TRAC",
+      "required": false
+    },
+    "NEXT_PUBLIC_COMPANY_RUT": {
+      "description": "RUT de la empresa",
+      "default": "XX.XXX.XXX-X",
+      "required": false
+    },
+    "NEXT_PUBLIC_COMPANY_EMAIL": {
+      "description": "Email de la empresa",
+      "default": "contacto@b2trac.com",
+      "required": false
+    },
+    "NEXT_PUBLIC_COMPANY_PHONE": {
+      "description": "Teléfono de la empresa",
+      "default": "+56 2 XXXX XXXX",
+      "required": false
+    },
+    "NEXT_PUBLIC_COMPANY_WEBSITE": {
+      "description": "Sitio web de la empresa",
+      "default": "www.b2trac.com",
+      "required": false
+    },
+    "NEXT_PUBLIC_COMPANY_ADDRESS": {
+      "description": "Dirección de la empresa",
+      "default": "Santiago, Chile",
+      "required": false
+    },
+    "NEXT_PUBLIC_PRIMARY_COLOR": {
+      "description": "Color primario (hex)",
+      "default": "#007bff",
+      "required": false
+    },
+    "NEXT_PUBLIC_SUCCESS_COLOR": {
+      "description": "Color de éxito (hex)",
+      "default": "#28a745",
+      "required": false
+    },
+    "NEXT_PUBLIC_WARNING_COLOR": {
+      "description": "Color de advertencia (hex)",
+      "default": "#ffc107",
+      "required": false
+    },
+    "NEXT_PUBLIC_DANGER_COLOR": {
+      "description": "Color de peligro (hex)",
+      "default": "#dc3545",
+      "required": false
+    }
+  },
+  "buildCommand": "next build",
+  "outputDirectory": ".next",
+  "framework": "nextjs",
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/admin",
+      "destination": "/",
+      "statusCode": 307
+    }
+  ]
+}
