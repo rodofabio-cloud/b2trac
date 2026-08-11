@@ -24,7 +24,7 @@ export default function Home() {
         </p>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-          
+
           <Link href="/vendedor">
             <button style={{
               backgroundColor: '#28a745',
@@ -63,17 +63,56 @@ export default function Home() {
             </button>
           </Link>
 
+          <Link href="/vendedor/tracking">
+            <button style={{
+              backgroundColor: '#dc3545',
+              color: 'white',
+              padding: '15px 30px',
+              fontSize: '16px',
+              fontWeight: 'bold',
+              border: 'none',
+              borderRadius: '5px',
+              cursor: 'pointer',
+              transition: 'background 0.3s'
+            }}
+            onMouseOver={(e) => e.target.style.backgroundColor = '#c82333'}
+            onMouseOut={(e) => e.target.style.backgroundColor = '#dc3545'}
+            >
+              📍 Rastreo de Vendedores
+            </button>
+          </Link>
+
         </div>
 
-        <p style={{ 
-          color: '#999', 
-          fontSize: '12px', 
+        <div style={{
           marginTop: '30px',
-          borderTop: '1px solid #eee',
-          paddingTop: '20px'
+          paddingTop: '20px',
+          borderTop: '1px solid #eee'
         }}>
-          B2TRAC v1.0 | Gestión de Distribución
-        </p>
+          <Link href="/dashboard">
+            <button style={{
+              backgroundColor: '#17a2b8',
+              color: 'white',
+              padding: '10px 20px',
+              fontSize: '14px',
+              fontWeight: 'bold',
+              border: 'none',
+              borderRadius: '5px',
+              cursor: 'pointer',
+              marginBottom: '10px',
+              width: '100%'
+            }}>
+              📊 Ver Dashboard
+            </button>
+          </Link>
+          <p style={{
+            color: '#999',
+            fontSize: '12px',
+            margin: '10px 0 0 0'
+          }}>
+            B2TRAC v1.0 | Gestión de Distribución
+          </p>
+        </div>
       </div>
     </div>
   );
