@@ -3,7 +3,22 @@ import { createClient } from '@supabase/supabase-js';
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+// createClient lanza si la URL falta, lo que rompe el build al prerenderizar
+// las paginas que importan este modulo. Con placeholders el build pasa y el
+// fallo aparece recien al consultar datos, con un mensaje entendible.
+export const configurado = Boolean(supabaseUrl && supabaseAnonKey);
+
+if (!configurado && typeof window !== 'undefined') {
+  console.warn(
+    'Faltan NEXT_PUBLIC_SUPABASE_URL y/o NEXT_PUBLIC_SUPABASE_ANON_KEY. ' +
+    'Cargalas en las variables de entorno de Vercel.'
+  );
+}
+
+export const supabase = createClient(
+  supabaseUrl || 'https://placeholder.supabase.co',
+  supabaseAnonKey || 'placeholder-anon-key'
+);
 
 // Funciones para pedidos
 export async function crearPedido(pedido) {
