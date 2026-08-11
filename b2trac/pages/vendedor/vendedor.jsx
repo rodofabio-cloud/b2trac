@@ -79,7 +79,7 @@ export default function PortalVendedor() {
         </div>
 
         {/* CONTROLES */}
-        <div style={{ marginBottom: '20px', display: 'flex', gap: '10px' }}>
+        <div style={{ marginBottom: '20px', display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
           <Link href="/pedidos/nuevo">
             <button style={{
               backgroundColor: '#28a745',
@@ -107,6 +107,19 @@ export default function PortalVendedor() {
           >
             📋 Ver Pedidos
           </button>
+          <Link href="/vendedor/tracking">
+            <button style={{
+              backgroundColor: '#dc3545',
+              color: 'white',
+              padding: '10px 20px',
+              border: 'none',
+              borderRadius: '4px',
+              cursor: 'pointer',
+              fontSize: '14px'
+            }}>
+              📍 Rastreo de Vendedores
+            </button>
+          </Link>
         </div>
 
         {/* TABLA */}
