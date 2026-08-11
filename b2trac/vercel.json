@@ -1,18 +1,4 @@
 {
-  "name": "B2TRAC",
-  "version": 2,
-  "projectSettings": {
-    "projectName": "B2TRAC",
-    "framework": "nextjs"
-  },
-  "env": {
-    "NEXT_PUBLIC_APP_NAME": {
-      "description": "Nombre de la aplicación",
-      "default": "B2TRAC"
-    }
-  },
-  "buildCommand": "next build",
-  "outputDirectory": ".next",
   "framework": "nextjs",
   "headers": [
     {
@@ -23,13 +9,6 @@
           "value": "no-cache, no-store, must-revalidate"
         }
       ]
-    }
-  ],
-  "redirects": [
-    {
-      "source": "/admin",
-      "destination": "/",
-      "statusCode": 307
     }
   ]
 }
