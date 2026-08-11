@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+# B2TRAC - Sistema de Gestión de Ventas en Ruta
